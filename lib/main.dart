@@ -15,14 +15,34 @@ class MyApp extends StatelessWidget {
           backgroundColor: Colors.deepPurpleAccent,
         ),
         body: SafeArea(
-          child: Column(
-            verticalDirection: VerticalDirection.down,  // Default
-            crossAxisAlignment: CrossAxisAlignment.stretch, // Stretch children across screen width
+          child: Column(    // TODO: Create event container template
+            verticalDirection: VerticalDirection.down,    // Default
+            crossAxisAlignment: CrossAxisAlignment.stretch,   // Stretch children across screen width
             children: <Widget>[
               Container(
+                padding: EdgeInsets.all(10.0),
                 height: 100.0,
                 color: Colors.white,
-                child: Text("Container 1"),
+                child: Row(
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          width: 100.0,   // TODO: Find a way to fractionally size name/description text
+                          child: Text("Name")
+                        ),
+                        Text("Description"),
+                      ],
+                    ),
+                    Column(
+                      children: [
+                        Text("Time"),
+                        Text("Date"),
+                      ],
+                    )
+                  ],
+                ),
               ),
               Container(
                 height: 100.0,
@@ -32,7 +52,7 @@ class MyApp extends StatelessWidget {
             ],
           )
         ),
-        bottomNavigationBar: BottomAppBar(  // NOTE: This probably has a better way of doing it
+        bottomNavigationBar: BottomAppBar(    // NOTE: This probably has a better way of doing it
           color: Colors.deepPurpleAccent,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -73,7 +93,7 @@ class MyApp extends StatelessWidget {
                   ),
                 ),
               ),
-              InkWell(  // TODO: Make this a floating button?
+              InkWell(    // TODO: Make this a floating button?
                 onTap: (){
                   print("Icon 3 clicked");
                 },
@@ -93,7 +113,7 @@ class MyApp extends StatelessWidget {
               )
             ],
           ),
-          elevation: 0,
+          elevation: 0,   // Do I need this?
         )
       )
     );
